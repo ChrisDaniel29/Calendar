@@ -26,13 +26,13 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 ## APPLICATION VERSIONS:-
 
-* Angular 18
-* Node 22
-* Npm 11
+* Angular 18.0.1
+* Node v22.14.0
+* Npm 10.9.2
 
 ## COMMANDS TO RUN THE APPLICATIONS:-
 
