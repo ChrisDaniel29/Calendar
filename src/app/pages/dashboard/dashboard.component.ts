@@ -1,5 +1,5 @@
 import { ChangeDetectorRef, Component, signal } from '@angular/core';
-import { CalendarOptions, EventApi, DateSelectArg, EventClickArg } from '@fullcalendar/core/index.js';
+import { CalendarOptions, EventApi, DateSelectArg, EventClickArg, ViewContentArg } from '@fullcalendar/core/index.js';
 import { INITIAL_EVENTS, createEventId } from '../../event-utils';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
@@ -8,7 +8,6 @@ import interactionPlugin from '@fullcalendar/interaction';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import listPlugin from '@fullcalendar/list';
-
 @Component({
   selector: 'app-dashboard',
   standalone: true,
@@ -58,6 +57,12 @@ export class DashboardComponent {
       allDaySlot: !options.allDaySlot,
     }));
   }
+  handleBusiToggle() {
+    this.calendarOptions.update((options) => ({
+      ...options,
+      businessHours: !options.businessHours,
+    }));
+  }
 
   handleWeekendsToggle() {
     this.calendarOptions.update((options) => ({
@@ -65,9 +70,22 @@ export class DashboardComponent {
       weekends: !options.weekends,
     }));
   }
+  handleWeekersToggle() {
+    this.calendarOptions.update((options) => ({
+      ...options,
+      weekNumbers: !options.weekNumbers,
+    }));
+  }
+  handledisplayToggle() {
+    this.calendarOptions.update((options) => ({
+      ...options,
+      displayEventTime: !options.displayEventTime,
+    }));
+  }
+  
 
   handleDateSelect(selectInfo: DateSelectArg) {
-    const title = prompt('Please enter a new title for your event');
+    const title = prompt('Please enter a new title for your event and subscribe');
     const calendarApi = selectInfo.view.calendar;
 
     calendarApi.unselect(); // clear date selection
@@ -88,6 +106,7 @@ export class DashboardComponent {
       clickInfo.event.remove();
     }
   }
+
 
   handleEvents(events: EventApi[]) {
     this.currentEvents.set(events);
