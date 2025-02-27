@@ -3,12 +3,12 @@
       <div class='demo-app-sidebar-section' style="background-color: darkseagreen;">
         <h2 >Instructions</h2>
         <ul>
-          <li>Select dates and you will be prompted to create a new event</li>
+          <li>Select dates and you will be prompted to create a new event and subscribe it</li>
           <li>Drag, drop, and resize events</li>
           <li>Click an event to unsubscribe it</li>
         </ul>
       </div>
-      <div  style="background-color: lightblue;"><h3 >Category filter</h3>
+      <div  style="background-color: lightblue;"><h3 >Category Filter</h3>
       <div class='demo-app-sidebar-section'>
         <label>
           <input
@@ -18,8 +18,19 @@
           />
           allDaySlot
         </label>
+        <div class='demo-app-sidebar-section'>
+        <label>
+          <input
+            type='checkbox'
+            [checked]='calendarOptions().businessHours'
+            (change)='handleBusiToggle()'
+          />
+          BusinessHours
+        </label>
+        </div>
       </div>
-      <div class='demo-app-sidebar-section'style="background-color: lightblue;">
+      <div  style="background-color:rgb(156, 144, 224);"><h3 >Events Filter</h3>
+      <div class='demo-app-sidebar-section'>
         <label>
           <input
             type='checkbox'
@@ -28,6 +39,27 @@
           />
          weekends
         </label>
+      </div>
+      <div class='demo-app-sidebar-section'>
+        <label>
+          <input
+            type='checkbox'
+            [checked]='calendarOptions().weekNumbers'
+            (change)='handleWeekersToggle()'
+          />
+          weekNumbers
+        </label>
+      </div>
+      <div class='demo-app-sidebar-section'>
+        <label>
+          <input
+            type='checkbox'
+            [checked]='calendarOptions().displayEventTime'
+            (change)='handledisplayToggle()'
+          />
+          DisplayEventTime
+        </label>
+      </div>
       </div>
     </div>
       <div class='demo-app-sidebar-section' style="background-color: lavender;">
